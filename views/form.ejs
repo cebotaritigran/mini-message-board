@@ -1,0 +1,30 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Message</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <form method="POST" action="/new" class="message-form">
+            <h1>Create Message</h1>
+
+            <input
+                type="text"
+                name="author"
+                placeholder="Your name"
+                required>
+
+            <textarea
+                name="message"
+                placeholder="Write your message..."
+                rows="5"
+                required></textarea>
+
+            <input type="submit" value="Post Message">
+        </form>
+    </div>
+</body>
+
+</html>
