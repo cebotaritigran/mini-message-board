@@ -5,10 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+      <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-    <%= selectedMessage.message %>
+    <div class="message-page">
+        <div class="message-detail">
+            <div class="author">
+                <%= selectedMessage.author %>
+            </div>
+
+            <div class="message-text">
+                <%= selectedMessage.message %>
+            </div>
+
+            <div class="date">
+                <%= selectedMessage.date %>
+            </div>
+
+            <a href="/" class="back-link">
+                ← Back to Messages
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>

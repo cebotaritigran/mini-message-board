@@ -79,6 +79,7 @@ h1 {
     transition: 0.25s;
     border: none;
     cursor: pointer;
+    margin: 20px 0 20px 0;
 }
 
 .btn:hover {
@@ -145,3 +146,50 @@ textarea:focus {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
+/* ========== Single Message Page ========== */
+
+.message-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.message-detail {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.message-detail .author {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.message-detail .message-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    margin-bottom: 25px;
+}
+
+.message-detail .date {
+    margin-bottom: 25px;
+}
+
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.back-link:hover {
+    background: #1d4ed8;
+}

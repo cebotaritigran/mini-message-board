@@ -25,10 +25,12 @@
                     <div class="date">
                         <%= message.date %>
                     </div>
+                    <button class="btn" onclick="window.location.href='/message/<%= message.id %>'">Open
+                        Message</button>
                 </li>
                 <% }) %>
-        </ul>
 
+        </ul>
         <a href="/new" class="btn">+ New Message</a>
     </div>
 </body>
