@@ -21,9 +21,12 @@ app.set("view engine", "ejs");
 
 
 app.use(express.urlencoded({ extended: true }));
-app.use('/', homeRouter);
-app.use('/new', newRouter)
-app.use('/message', messageRouter)
+app.get("/", (req, res) => {
+  res.send("WORKING ON RAILWAY");
+});
+// app.use('/', homeRouter);
+// app.use('/new', newRouter)
+// app.use('/message', messageRouter)
 
 
 const PORT = process.env.PORT || 3000;
