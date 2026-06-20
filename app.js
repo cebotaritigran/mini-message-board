@@ -36,12 +36,12 @@
 const express = require("express");
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
-  res.send("RAILWAY WORKS");
+  res.send("RAILWAY IS WORKING");
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log("running");
+  console.log("Server running on", PORT);
 });
