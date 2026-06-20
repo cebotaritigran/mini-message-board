@@ -1,4 +1,4 @@
-// routes/messageRouter.js
+// routes/newRouter.js
 const { Router } = require("express");
 const messages = require("../messages");
 
