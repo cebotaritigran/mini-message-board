@@ -37,7 +37,7 @@ async function deleteUsernames(req, res) {
 }
 
 module.exports = {
-    getUsernames,
+    getMessages,
     deleteUsernames,
     searchUsernames,
     createUsernameGet,
