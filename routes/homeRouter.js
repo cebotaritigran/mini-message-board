@@ -1,12 +1,11 @@
 const { Router } = require("express");
 const messages = require("../messages");
 const homeRouter = Router();
+const messageController = require("../controllers/messageController")
 
 
 
-homeRouter.get("/", (req, res) => {
-    res.render("index", { messages: messages, text: "this is homepage" });
-});
+homeRouter.get("/", messageController.getMessages);
 
 
 
