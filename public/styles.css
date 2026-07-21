@@ -81,9 +81,26 @@ h1 {
     cursor: pointer;
     margin: 20px 0 20px 0;
 }
+.btn-delete {
+    display: inline-block;
+    text-decoration: none;
+    background: #dc2626;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.25s;
+    border: none;
+    cursor: pointer;
+    margin: 20px 0 20px 0;
+}
 
 .btn:hover {
     background: #1d4ed8;
+}
+
+.btn-delete:hover {
+    background: #b91c1c;
 }
 
 /* ========== Form Page ========== */

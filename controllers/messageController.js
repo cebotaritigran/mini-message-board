@@ -1,45 +1,81 @@
 const db = require("../db/queries");
+const { body, validationResult } = require("express-validator");
+
+
 
 async function getMessages(req, res) {
     const messages = await db.getAllMessages();
     console.log("Messages: ", messages);
-    res.send("messages: " + messages);
+    res.render("index", { messages: messages });
 }
 
-async function searchUsernames(req, res) {
-    const { search } = req.query;
-
-    const usernames = await db.searchUser(search);
-
-    res.send(
-        "Usernames: " + usernames.map(user => user.username).join(", ")
-    );
+async function getMessageByID(req, res) {
+    const { id } = req.params;
+    const selectedMessage = await db.getMessageByID(id);
+    res.render("message", { selectedMessage: selectedMessage });
 }
 
-async function createUsernameGet(req, res) {
-    // render the form
+async function deleteMessageByID(req, res) {
+    const { id } = req.params;
+    // console.log("DELETE ROUTE HIT", req.params);
+    console.log("Deleted", id);
+    await db.deleteMessageByID(id);
 
-    res.render("form")
-    console.log("usernames will be entered here - wip")
-
-}
-
-async function createUsernamePost(req, res) {
-    const { username } = req.body;
-    await db.insertUsername(username);
     res.redirect("/");
 }
 
-async function deleteUsernames(req, res) {
-     const usernames = await db.deleteUsername();
-    console.log("database deleted");
+
+async function createMessage(req, res) {
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).render("form", {
+            errors: errors.array(),
+        });
+    }
+
+    const { username, message } = req.body;
+
+    await db.createMessage(username, message);
+
     res.redirect("/");
 }
+
+
+
+
+
+
+
+
+
+// async function createMessage(req, res) {
+//     const { username, message } = req.body;
+
+
+//     await db.createMessage(username, message);
+
+//     res.redirect("/");
+
+// }
+
+async function searchByUsername(req, res) {
+    const { search } = req.params;
+
+    const messages = await db.searchByUsername(search);
+
+    console.log(messages);
+
+    res.render("message", { selectedMessage: messages[0] });
+}
+
+
 
 module.exports = {
     getMessages,
-    deleteUsernames,
-    searchUsernames,
-    createUsernameGet,
-    createUsernamePost
+    getMessageByID,
+    deleteMessageByID,
+    createMessage,
+    searchByUsername
 };

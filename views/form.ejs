@@ -6,13 +6,13 @@
 </head>
 
 <body>
-    <div class="form-container">
+    <!-- <div class="form-container">
         <form method="POST" action="/new" class="message-form">
             <h1>Create Message</h1>
 
             <input
                 type="text"
-                name="author"
+                name="username"
                 placeholder="Your name"
                 required>
 
@@ -24,7 +24,40 @@
 
             <input type="submit" value="Post Message" class="btn">
         </form>
-    </div>
+    </div> -->
+    <div class="form-container">
+    <form method="POST" action="/new" class="message-form">
+
+        <h1>Create Message</h1>
+
+        <% if (typeof errors !== "undefined") { %>
+            <ul class="errors">
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        <% } %>
+
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Your name"
+            value="<%= typeof username !== 'undefined' ? username : '' %>"
+            required>
+
+
+        <textarea
+            name="message"
+            placeholder="Write your message..."
+            rows="5"
+            required><%= typeof message !== 'undefined' ? message : '' %></textarea>
+
+
+        <input type="submit" value="Post Message" class="btn">
+
+    </form>
+</div>
 </body>
 
 </html>
